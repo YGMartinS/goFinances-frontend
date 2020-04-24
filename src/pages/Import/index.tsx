@@ -32,7 +32,7 @@ const Import: React.FC = () => {
         readableSize: file.readableSize
       }
 
-      data.append('file', upload.file);
+      data.append('files', upload.file, upload.name);
 
       try {
         await api.post('/transactions/import', data);
@@ -40,8 +40,6 @@ const Import: React.FC = () => {
         console.log(err.message);
       }
     })
-
-
 
     //history.push('/');
   }
