@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  activeMenuBar?: 'dashboard' | 'import';
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -22,6 +23,10 @@ export const Container = styled.div<ContainerProps>`
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+
+        &.${(props) => props.activeMenuBar} {
+          border-bottom: 2px solid #FF872C;
+        }
 
         & + a {
           margin-left: 32px;

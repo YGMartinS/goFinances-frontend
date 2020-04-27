@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header activeMenuBar="dashboard"/>
       <Container>
         <CardContainer>
           <Card>

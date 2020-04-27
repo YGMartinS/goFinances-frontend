@@ -8,22 +8,21 @@ import Logo from '../../assets/logo.svg';
 
 interface HeaderProps {
   size?: 'small' | 'large';
+  activeMenuBar?: 'dashboard' | 'import';
 }
 
-const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => {
-
+const Header: React.FC<HeaderProps> = ({ size = 'large', activeMenuBar }: HeaderProps) => {
   return (
-    <Container size={size}>
+    <Container size={size} activeMenuBar={activeMenuBar}>
     <header>
       <img src={Logo} alt="GoFinances" />
       <nav>
-        <Link to="/">Listagem</Link>
-        <Link to="/import">Importar</Link>
+        <Link to="/" className={activeMenuBar === 'dashboard' ? activeMenuBar:''}>Listagem</Link>
+        <Link to="/import" className={activeMenuBar === 'import' ? activeMenuBar:''}>Importar</Link>
       </nav>
     </header>
   </Container>
   )
-
 };
 
 export default Header;
